@@ -42,7 +42,7 @@ if "messages" not in st.session_state:
          "content": "你好！我是三亚学院的智能助手，基于阿里云通义千问大模型。请问有什么我可以帮助你的吗？"}
     ]
 
-if "open_client" not in st.session_state:
+if "openai_client" not in st.session_state:
     st.session_state.open_client = create_openai_client()
 
 st.title("🤖 三亚学院智能聊天助手")
