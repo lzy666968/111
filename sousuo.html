@@ -342,6 +342,8 @@
     const tableBody = document.getElementById('tableBody');
     const noResults = document.getElementById('noResults');
 
+    let historyList = JSON.parse(localStorage.getItem('searchHistory')) || [];
+
     function debounce(func, delay) {
       let timer;
       return function () {
@@ -403,6 +405,90 @@
       searchData(keyword);
     }));
 
+    //点击搜索历史
+    function addHistory(keyword) {
+      historyList = historyList.filter(item => item !== keyword);
+      historyList.unshift(keyword);
+      if (historyList.length > 1) {
+        historyList = historyList.slice(0, 5);
+      }
+      localStorage.setItem('searchHistory', JSON.stringify(historyList));
+      renderHistory();
+    }
+
+    //渲染搜索历史
+    function renderHistory() {
+      searchHistory.innerHTML = '';
+      historyList.forEach(item => {
+        const historyItem = document.createElement('div');
+        historyItem.className = 'history-item';
+
+        const textSpan = document.createElement('span');
+        textSpan.textContent = item;
+        textSpan.style.flexGrow = '1';
+        textSpan.style.cursor = 'pointer';
+
+        historyItem.addEventListener('click', function (event) {
+          if (!event.target.classList.contains('delete-history')) {
+            searchInput.value = item;
+            searchInput.style.display = 'none';
+            searchData(item);
+
+          }
+        });
+        const deleteBtn = document.createElement('span');
+        deleteBtn.className = 'delete-history';
+        deleteBtn.innerHTML = 'X';
+        deleteBtn.addEventListener('click', function (e) {
+          e.stopPropagation();
+          deleteHistory(item);
+        })
+        historyItem.appendChild(textSpan);
+        historyItem.appendChild(deleteBtn);
+        searchHistory.appendChild(historyItem);
+      });
+
+    }
+    //删除搜索历史
+    function deleteHistory(keyword) {
+      historyList = historyList.filter((item) => {
+        return item !== keyword;
+      });
+      localStorage.setItem('searchHistory', JSON.stringify(historyList));
+      renderHistory();
+      if (historyList.length === 0) {
+        searchHistory.style.display = 'none';
+      }
+    }
+    //添加按键松开事件来处理完整的搜索历史
+    searchInput.addEventListener('keyup', function (e) {
+      if (e.key === 'Enter') {
+        const keyword = this.value.trim();
+        if (keyword) {
+          addHistory(keyword);
+        }
+
+      }
+    });
+    //当搜索框失去焦点时也添加到历史记录
+    searchInput.addEventListener('blur', function () {
+      const keyword = this.value.trim();
+      if (keyword) {
+        addHistory(keyword);
+      }
+    });
+    //搜索框获取焦点时显示历史记录
+    searchInput.addEventListener('focus', function () {
+      if (historyList.length > 0) {
+        searchHistory.style.display = 'block';
+      }
+    });
+    //当点击页面其他部分的地方时，搜索历史会消失
+    document.addEventListener('click', function (e) {
+      if (!searchInput.contains(e.target) && !searchHistory.contains(e.target)) {
+        searchHistory.style.display = 'none';
+      }
+    });
     initTable(dataList);
   </script>
 

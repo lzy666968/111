@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hash Text</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+    <style>
+        html {
+            overflow-y: scroll;
+            min-height: 101%;  /* 强制显示滚动条 */
+        }
+
+        .header {
+            margin-bottom: 20px;
+        }
+
+        .header h1 {
+            font-size: 28px;
+            margin: 0 0 10px 0;
+            color: #333;
+        }
+
+        .header .description {
+            margin: 0;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        .nav-bar {
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: #f8f9fa;
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+            z-index: 1000;
+        }
+        
+        .nav-content {
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 40px;
+        }
+        
+        .nav-content .title {
+            font-size: 20px;
+            color: #666;
+        }
+        
+        .nav-content .logo {
+            height: 40px;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            padding-top: 80px;  /* 为固定导航栏留出空间 */
+        }
+
+        .card {
+            max-width: 800px;
+            margin: 20px auto;
+            margin-bottom: 200px;  /* 添加底部空间 */
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            min-height: 100px;
+            box-sizing: border-box;
+        }
+
+        select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .hash-group {
+            display: flex;
+            margin: 5px 0;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .hash-label {
+            flex: 0 0 100px;
+            font-weight: bold;
+        }
+
+        .hash-value {
+            flex: 1 1 500px;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background: #f9f9f9;
+            cursor: pointer;
+            word-break: break-all;
+            line-height: 1.5;
+            max-width: 100%;
+            overflow-wrap: break-word;
+        }
+
+        .hash-value:hover {
+            background: #f0f0f0;
+        }
+
+        @media (max-width: 600px) {
+            .hash-label {
+                flex: 0 0 80px;
+            }
+            
+            .hash-value {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="nav-bar">
+        <div class="nav-content">
+            <div class="title">三亚学院盛宝金融科技商学院-------区块链工程-------IT-tools</div>
+            <img src="../images/sbxyheilogo.png" alt="SAXO FINTECH" class="logo">
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="header">
+            <h1>Hash 文本</h1>
+            <p class="description">使用所需的函数哈希文本字符串：MD5、SHA1、SHA256、SHA224、SHA512、SHA384、SHA3或RIPEMD160</p>
+        </div>
+
+        <textarea id="clearText" placeholder="Your string to hash..." autofocus></textarea>
+
+        <select id="encoding">
+            <option value="Bin">Binary (base 2)</option>
+            <option value="Hex" selected>Hexadecimal (base 16)</option>
+            <option value="Base64">Base64 (base 64)</option>
+            <option value="Base64url">Base64url (base 64 with url safe chars)</option>
+        </select>
+
+        <div id="hashResults"></div>
+    </div>
+
+    <script>
+        function convertHexToBin(hex) {
+            const cleanHex = hex.trim();
+            let result = "";
+            for (let i = 0; i < cleanHex.length; i++) {
+                const hexChar = cleanHex[i];
+                const decimal = parseInt(hexChar, 16);
+                let Binary = decimal.toString(2);
+                while (bring.length < 4) {
+                    binary = "0" + binary;
+                }
+                result = result + binary;
+                
+            }
+            return result;
+        }
+        function formatWithEncoding(words,encoding) {
+            if (encoding === "Bin") {
+                const hex = words.toString(CryptoJS.enc.Hex);
+                return convertHexToBin(hex);
+            }
+            return words.toString(CryptoJS.enc[encoding]);
+        }
+        
+       
+    </script>
+</body>
+
+</html>
