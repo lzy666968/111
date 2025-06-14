@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>专业技能 - 个人主页</title>
+    <link rel="stylesheet" type="text/css" href="css/skills.css">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="stylesheet" type="text/css" href="css/common.css">
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+</head>
+
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="images/OIP-C.jpg" alt="网站Logo">
+                    </a>
+                </div>
+                <nav class="main-nav">
+                    <ul>
+                        <li>
+                            <a href="index.html">首页</a>
+                        </li>
+                        <li>
+                            <a href="education.html">教育背景</a>
+                        </li>
+                        <li class="active">
+                            <a href="skills.html">专业技能</a>
+                        </li>
+                        <li>
+                            <a href="portfolio.html">项目经验</a>
+                        </li>
+                        <li>
+                            <a href="contact.html">联系我</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <div class="skills-section">
+        <div class="container">
+            <h2 class="section-title">专业技能 <span class="en">Skills</span></h2>
+            
+            
+            <div class="skills-radar">
+                <div id="skillsRadar" style="width: 100%; height: 500px;"></div>
+            </div>
+
+            
+            <div class="project-progress">
+                <h3>当前项目进度</h3>
+                <div class="progress-grid">
+                    <div class="progress-item">
+                        <div class="progress-info">
+                            <span class="project-name">在线学习平台</span>
+                            <span class="progress-percentage">60%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-level" style="width: 60%"></div>
+                        </div>
+                        <div class="progress-details">
+                            <span class="progress-status">进行中</span>
+                            <span class="progress-date">预计完成：2026-04-20</span>
+                        </div>
+                    </div>
+                    <div class="progress-item">
+                        <div class="progress-info">
+                            <span class="project-name">移动端APP开发</span>
+                            <span class="progress-percentage">40%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-level" style="width: 40%"></div>
+                        </div>
+                        <div class="progress-details">
+                            <span class="progress-status">进行中</span>
+                            <span class="progress-date">预计完成：2026-05-30</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="skills-category">
+                <h3>前端开发</h3>
+                <div class="skills-grid">
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>HTML5/CSS3</span>
+                            <span>95%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 95%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>JavaScript</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>Vue.js</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 85%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skills-category">
+                <h3>后端开发</h3>
+                <div class="skills-grid">
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>Node.js</span>
+                            <span>80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 80%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>Python</span>
+                            <span>75%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 75%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skills-category">
+                <h3>其他技能</h3>
+                <div class="skills-grid">
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>UI设计</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>项目管理</span>
+                            <span>80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 80%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>关于本站</h4>
+                    <p>这是一个展示个人简历的网站，希望能与大家分享生活的乐趣。</p>
+                </div>
+                <div class="footer-section">
+                    <h4>联系方式</h4>
+                    <p>邮箱：2148567858@qq.com</p>
+                    <p>微信：w_w_e_y_6</p>
+                </div>
+                <div class="footer-section">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="education.html">教育背景</a></li>
+                        <li><a href="skills.html">专业技能</a></li>
+                        <li><a href="portfolio.html">项目经验</a></li>
+                        <li><a href="contact.html">联系我</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 xxxxx. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/skills.js"></script>
+    <script src="js/common.js"></script>
+</body>
+
+</html> 
